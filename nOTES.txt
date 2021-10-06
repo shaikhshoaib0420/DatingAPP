@@ -1,0 +1,7 @@
+Important commands:
+dotnet new sln
+dotnet new webapi -o API
+dotnet sln add API {Adding API in solution API}
+dotnet run
+dotnet ef migrations add InitializeCreate -o Data/Migrations
+ 

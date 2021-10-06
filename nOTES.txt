@@ -3,5 +3,83 @@ dotnet new sln
 dotnet new webapi -o API
 dotnet sln add API {Adding API in solution API}
 dotnet run
-dotnet ef migrations add InitializeCreate -o Data/Migrations
+dotnet ef migrations add Migration-name
+
+
+Angular:
+
+node --version (node's version)
+npm --version(npm's version)
+ng --version(angular's version)
+
+creating project:
+	ng new project-name
+connectiong .net and angular project:
+	(In startup.cs file)
+	Adding Cors service in configure services: services.AddCors(); 
+	Adding Cors app in Configure function: app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("Angular's link"));
+
+		
+adding bootstrap:
+	ng add ngx-bootstrap
+
+adding Awesome font:
+	npm install font-awesome
+
+video 48:
+ng g -h (help)
+
+form:
+#loginform = "ngForm"  (ngSubmit)="loin()"    ngModel
+
+
+promise                           observable   
+Provides a single future value    Emits multiple values over time
+Not lazy                          Lazy
+Can not cancel                    Able to cancel
+                                  Can use with map, filter, reduce 
+                                  and other operators
+
+Observable:
+
+	ReplaySubject : Special type of observable which provide last value of buffer.
+
+obaservable should have suffix "$".
+
+video no 55 recap:
+for storage purpose: (In localStorage and observable(replaySubject)) 
+	first of all we take the response from login function of AccountSercice.ts file 
+	as username and tokken, the assigning it to user variable of User Interface of type(username, token),
+	setting up user variable in localstorage after stringifying it, and then storing it in observable
+	currentUserSource. 
+for display purpose:(taking from localStorage parse it and store in observable(replaysubject))
+	1)Then in app.component.ts file we initialized setCurrentUser which take the user item from localstorage
+	parse it(opposite of stringifying it) and the store and again setting it in observable(replaysubject).
+	2) After logging in In nav.component.ts file initializing function getCurrentUser which see the observable(currentUser$),
+	is empty or filled with user. if filled the making loggedIn variable as ture else false. and will persist the 
+	username and token on console as it stored in localStorage and then observable, if not logged out. Because logout 
+	function in accountService.ts file remove item from localStorage and nullify the observable.
+
+
+
+video no 56 recape:
+	Directly using observable(replaySubject) i.e. currentUser$ in nav.component.html and
+	nav.component.ts file instead of boolean variable loggedIn.
+
+ Doubts : 1) using currentUser$ instead of loggedIn makes navigation baar invisible.
+	  2) this.currentSource.next(null) doesn't work.
+	  3) bullet execution of getUser() doesn't work, lengthy method does. 
+	  4) emit function doesn't taking boolean var as parameter.
+	  5) source control pushing.
+
+Video no. 61 to be implemented.
+
+Angular toastr services:
+	command: npm install ngx-toastr
+	
+n
+
+
+
+
  

@@ -77,7 +77,7 @@ Video no. 61 to be implemented.
 Angular toastr services:
 	command: npm install ngx-toastr
 	
-n
+
 
 
 

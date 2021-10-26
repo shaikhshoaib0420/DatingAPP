@@ -72,12 +72,20 @@ video no 56 recape:
 	  4) emit function doesn't taking boolean var as parameter.
 	  5) source control pushing.
 
-Video no. 61 to be implemented.
+Video no. 61, 78, 79, 80, 81 to be implemented.
 
 Angular toastr services:
 	command: npm install ngx-toastr
-	
 
+ Repository:
+		(using repository instead of DataContext)
+		from UsersController.cs to IUserRepository.cs interface, 
+		which call UserRepository.cs. Implementation of interface IUserRepository.cs
+		is in UserRepository.cs which is in Data folder.
+
+		 
+
+video number 95, auto mapper cannot convert the memberDto to system threadingTask
 
 
 

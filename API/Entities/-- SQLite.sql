@@ -1,3 +1,4 @@
 -- SQLite
-INSERT INTO Users (Id, UserName)
-VALUES (4, "Shoaib");
+SELECT Id, PasswordSalt, UserName, PasswordHash, City, Country, Created, DateOfBirth, Gender, Interests, Introduction, KnownAs, LastActive, LookingFor
+FROM Users
+WHERE UserName = 'lisa'

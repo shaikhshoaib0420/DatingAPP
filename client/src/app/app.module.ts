@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,9 +14,19 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
-import { ToastrModule } from 'ngx-toastr';
+// import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { SharedModule } from './_modules/shared.module';
 import { TestErrosComponent } from './errors/test-erros/test-erros.component';
+import { MemberCardComponent } from './members/member-card/member-card.component';
+import { MemberEditComponent } from './member-edit/member-edit.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingInterceptor } from './loading.interceptor';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { DateInputComponent } from './_forms/date-input/date-input.component';
+// import { JwtInterceptor } from 
 
 @NgModule({
   declarations: [
@@ -28,7 +38,12 @@ import { TestErrosComponent } from './errors/test-erros/test-erros.component';
     MemberDetailComponent,
     ListsComponent,
     MessagesComponent,
-    TestErrosComponent
+    TestErrosComponent,
+    MemberCardComponent,
+    MemberEditComponent,
+    PhotoEditorComponent,
+    TextInputComponent,
+    DateInputComponent
     
   ],
   imports: [
@@ -37,11 +52,17 @@ import { TestErrosComponent } from './errors/test-erros/test-erros.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    SharedModule
+    ReactiveFormsModule,
+    SharedModule,
+    NgxSpinnerModule
     
   ],
 
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
+    ToastrService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

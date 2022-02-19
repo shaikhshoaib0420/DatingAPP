@@ -1,0 +1,26 @@
+<!-- <p>text-input works!</p> -->
+<!-- formControlName="confirmPassword" -->
+<div class="form-group">
+    <input
+    class="form-control"
+    [class.is-invalid] = "ngControl.touched && ngControl.invalid"
+    type={{type}} 
+    [formControl] = ngControl.control
+    placeholder={{label}}
+    >
+    <div class="invalid-feedback" *ngIf="ngControl.control?.errors?.required">
+       please enter {{label}}
+    </div>
+
+     <div class="invalid-feedback" *ngIf="ngControl.control?.errors?.minlength">
+         {{label}} should be atleast {{ngControl.control?.errors?.minlength['requiredLength']}}
+     </div>
+
+     <div class="invalid-feedback" *ngIf="ngControl.control?.errors?.maxlength">
+        {{label}} should be atmost {{ngControl.control?.errors?.maxlength['requiredLength']}}
+    </div>
+
+    <div class="invalid-feedback" *ngIf="ngControl.control?.errors?.isMatching">
+      Passwords do no match
+    </div>
+</div>

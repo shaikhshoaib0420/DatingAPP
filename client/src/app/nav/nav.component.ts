@@ -27,8 +27,10 @@ export class NavComponent implements OnInit {
     // this.currentUser$ = this.accountService.currentUser$;     --making AccountService public and using it without much coding
   }
   login(){
+    // debugger;
     this.accountService.login(this.model).subscribe(response =>
-      {
+      { 
+        // debugger;
         this.router.navigateByUrl('/members')
         console.log(response);
         // this.loggedIn = true;

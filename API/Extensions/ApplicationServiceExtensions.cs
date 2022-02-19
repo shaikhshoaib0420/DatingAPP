@@ -12,9 +12,13 @@ namespace API.Extensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config )
         {   
+
+            services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPhotoService, PhotoService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
+            // services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
             services.AddDbContext<DataContext>(options =>
             // services.AddDbContext<DataContext>(options =>
             {
@@ -22,6 +26,7 @@ namespace API.Extensions
                 options.UseSqlite(config.GetConnectionString("DefaultConnection"));
             }
             );
+
             return services;
         }
     }

@@ -1,6 +1,6 @@
 Important commands:
 dotnet new sln
-dotnet new webapi -o API
+dotnet new webapi -o API 
 dotnet sln add API {Adding API in solution API}
 dotnet run
 dotnet ef migrations add Migration-name
@@ -31,6 +31,17 @@ ng g -h (help)
 
 form:
 #loginform = "ngForm"  (ngSubmit)="loin()"    ngModel
+
+
+
+
+
+
+
+
+
+taking baseUrl in Environment gives error, and httpOptions implementation for authorization.
+member.service.ts, Environement, accountService.ts should be checked for Environement apiUrl
 
 
 promise                           observable   
@@ -66,13 +77,13 @@ video no 56 recape:
 	Directly using observable(replaySubject) i.e. currentUser$ in nav.component.html and
 	nav.component.ts file instead of boolean variable loggedIn.
 
- Doubts : 1) using currentUser$ instead of loggedIn makes navigation baar invisible.
-	  2) this.currentSource.next(null) doesn't work.
+ Doubts : 
+	  
 	  3) bullet execution of getUser() doesn't work, lengthy method does. 
-	  4) emit function doesn't taking boolean var as parameter.
+	
 	  5) source control pushing.
 
-Video no. 61, 78, 79, 80, 81 to be implemented.
+
 
 Angular toastr services:
 	command: npm install ngx-toastr
@@ -85,9 +96,33 @@ Angular toastr services:
 
 		 
 
-video number 95, auto mapper cannot convert the memberDto to system threadingTask
+
+
+video no 112 :
+	adding photo gallery using ngx-gallery.
+	adding ngx-gallery to member-detail.ts and pass galleryOptions and galleryImages in the ts file.
+	in ts file execute getImages() to get galleryImages after getMember() function.and then galleryOptions.
+
+Video 132: using ng2-file-uploader in client for uploading image.
+
+Doubt:
+
+
+	
+toastr services doesn't have design in register.ts file.
+
+
+video 69: toastr properties is not running in authguard.ts
 
 
 
+video 133 adding photo from client gives error 500(), controller's function add-photo
 
- 
+video 156 : why he is using [(ngModel)]="pagination.currentPage" in meber-list.html file and not using it.
+
+
+up
+
+while updating user it doesn't find token.
+video 150: validation error can't be visible on template nor console. it only visible on network response.
+video 160 to be start.
